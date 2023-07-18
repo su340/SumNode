@@ -1,0 +1,97 @@
+
+-----------------REST API
+
+  A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions used to design and interact with web services. It is based on the principles of the REST architectural style, which emphasizes simplicity, scalability, and the use of standard HTTP methods and status codes.
+
+
+  In a REST API, resources are represented as URLs (Uniform Resource Locators), and clients can perform various operations on these resources by sending HTTP requests to the appropriate URLs. The four primary HTTP methods used in RESTful APIs are:
+
+      1. GET: Retrieves a representation of a resource or a collection of resources.
+      2. POST: Creates a new resource.
+      3. PUT: Updates an existing resource or creates a new resource if it doesn't exist.
+      4. DELETE: Removes a resource.
+
+
+  REST APIs typically use JSON (JavaScript Object Notation) or XML (eXtensible Markup Language) as the data format for representing resources and exchanging data between the client and server. JSON has become the more popular choice due to its simplicity and compatibility with many programming languages.
+
+  To interact with a REST API, clients can make HTTP requests using libraries or frameworks that provide convenient methods for sending requests and handling responses. Commonly used libraries include cURL, Axios, and requests (in Python).
+
+  REST APIs are widely used in modern web development and are the backbone of many web services and applications, allowing different systems to communicate and exchange data in a standardized manner.
+
+  --------------Nodemon
+
+    Nodemon is a utility for Node.js applications that automatically restarts the application when file changes are detected. It is commonly used during development to speed up the development process by eliminating the need to manually restart the server after code modifications.
+
+      #node-install in the application folder
+      #nodemon-install as dev dependency globally for the  application
+      #express - install to get the express server in the application folder
+
+---Difference between find() & findIndex:
+
+  The `find()` and `findIndex()` methods in JavaScript arrays are used for searching elements based on a given condition. Here's the difference between them:
+
+1. `find()`: The `find()` method is used to retrieve the first element in an array that satisfies a provided testing function. It returns the value of the first element that matches the condition or `undefined` if no matching element is found. The `find()` method stops iterating over the array as soon as it finds a matching element.
+
+Example usage of `find()`:
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const foundNumber = numbers.find(number => number > 3);
+console.log(foundNumber); // Output: 4
+```
+
+2. `findIndex()`: The `findIndex()` method is used to find the index of the first element in an array that satisfies a given testing function. It returns the index of the first matching element or -1 if no matching element is found. Similar to `find()`, the `findIndex()` method stops iterating over the array as soon as it finds a matching element.
+
+Example usage of `findIndex()`:
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const index = numbers.findIndex(number => number > 3);
+console.log(index); // Output: 3
+```
+
+In summary, `find()` returns the value of the first matching element, while `findIndex()` returns the index of the first matching element. Both methods are useful for searching arrays based on specific conditions, but `find()` is used when you need the value of the matching element, whereas `findIndex()` is used when you need the index of the matching element.
+
+--------splice():
+
+  The `splice()` method in JavaScript is used to change the content of an array by adding, removing, or replacing elements. It modifies the original array in place and returns an array containing the removed elements (if any).
+
+The syntax for using `splice()` is as follows:
+
+```javascript
+array.splice(startIndex, deleteCount, item1, item2, ...)
+```
+
+- `startIndex`: The index at which the modification should begin. Elements from this index will be removed or replaced.
+- `deleteCount` (optional): The number of elements to remove from the array starting at the `startIndex`. If `deleteCount` is 0, no elements are removed.
+- `item1, item2, ...` (optional): Elements to be inserted into the array at the `startIndex`.
+
+Here are a few examples to demonstrate the usage of `splice()`:
+
+1. Removing elements from an array:
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const removed = numbers.splice(2, 2);
+console.log(numbers); // Output: [1, 2, 5]
+console.log(removed); // Output: [3, 4]
+```
+
+2. Replacing elements in an array:
+```javascript
+const colors = ['red', 'green', 'blue'];
+colors.splice(1, 1, 'yellow');
+console.log(colors); // Output: ['red', 'yellow', 'blue']
+```
+
+3. Adding elements to an array:
+```javascript
+const fruits = ['apple', 'banana', 'cherry'];
+fruits.splice(2, 0, 'orange', 'grape');
+console.log(fruits); // Output: ['apple', 'banana', 'orange', 'grape', 'cherry']
+```
+
+In the examples above, you can see how `splice()` is used to modify arrays by removing elements, replacing elements, and inserting new elements at specific positions.
+
+----------Spread Syntax(...):
+
+    The spread syntax in JavaScript, represented by the ... (three dots) notation, is used to expand iterable objects such as arrays or objects into individual elements. It allows you to copy and combine elements from one array or object to another.
+
+    The spread syntax is versatile and can be used in various situations where you need to expand or combine elements from arrays or objects. It is particularly useful for creating new arrays or objects without modifying the original ones or for quickly merging multiple objects into a new object.

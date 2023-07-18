@@ -1,0 +1,194 @@
+
+Special requirements to create a server using Js:
+
+  To create a server using JavaScript, specifically in the Node.js runtime environment, you need to follow these general steps:
+
+        1. Set up Node.js: Ensure that you have Node.js installed on your system. You can download and install it from the official Node.js website (https://nodejs.org).
+
+        2. Initialize a new project: Create a new directory for your project and navigate to it using the command line. Run `npm init` to initialize a new Node.js project. This will create a `package.json` file that holds metadata about your project and its dependencies.
+
+        3. Install necessary dependencies: You may need to install additional packages or modules depending on your server requirements. For example, to create a basic HTTP server, you can use the built-in `http` module. If you want to build more complex servers, you might consider using frameworks like Express.js or Koa.js. Use the `npm install` command to install the required dependencies.
+
+        4. Create the server file: Create a JavaScript file (e.g., `server.js`) where you will define and configure your server.
+
+        5. Write server code: In your server file, you can require the necessary modules, define routes and endpoints, and set up any middleware or additional functionality you need. You will typically use the `http` module or a web framework to handle incoming requests and send responses.
+
+        6. Start the server: At the end of your server file, start the server by calling the appropriate function or method. For example, if you are using the `http` module, you can use `http.createServer()` to create the server instance and then call `server.listen(port)` to start listening on a specific port.
+
+        7. Run the server: Use the command line to navigate to the project directory and run the server file using the Node.js command. For example, `node server.js`. This will start the server and make it accessible at the specified port.
+
+        8. Test the server: Open a web browser or a tool like cURL or Postman and make requests to your server to test its functionality.
+
+    These are the general steps to create a server using JavaScript in the Node.js environment. The specifics may vary depending on the libraries or frameworks you choose to work with and the requirements of your server application.
+
+
+*Syntax to create a server:
+
+      const http = require('http');
+
+           // Create the server
+      const server = http.createServer((request, response) => {
+          // Handle incoming requests
+          // Example: Send "Hello, World!" as the response
+      response.statusCode = 200;
+      response.setHeader('Content-Type', 'text/plain');
+      response.end('Hello, World!');
+      });
+
+          // Start the server
+      const port = 3000; // Specify the desired port number
+      server.listen(port, () => {
+      console.log(`Server listening on port ${port}`);
+      });
+
+
+*what is difference between start and dev
+
+    In the context of a package.json file, "start" and "dev" are commonly used script names. Here's the difference between them:
+
+      "start":
+          The "start" script is a convention used to define the command that should be executed when your application starts in a production environment. It is typically used when deploying your application to a production server. For example, you might use "node server.js" as the value for the "start" script if your application is started using the "node" command.
+          To run the "start" script, you would use the following command:
+                => npm start
+      "dev":
+          The "dev" script is often used during the development phase of your application. It defines the command that should be executed when you want to run your application in a development environment. This script can be used to set up a development server, enable features like live reloading or automatic restarts, or perform other development-specific tasks.
+          To run the "dev" script, you would use a command similar to this:
+
+                =>npm run dev
+      The main difference between "start" and "dev" is the intended usage and context.
+      "start" is typically used for production environments, 
+      while "dev" is used for development environments. 
+      The commands executed in these scripts can vary
+      based on the specific needs of your application and the tools you are using.
+
+
+*Express and nodemon are two separate tools that are commonly used together in Node.js 
+
+    Express:
+      Express is a popular web application framework for Node.js. 
+      It simplifies the process of building web applications by 
+      providing a robust set of features and utilities. Express helps with routing, middleware management, handling HTTP requests and responses, and more. It allows you to create server-side applications and APIs with ease.
+
+    Nodemon:
+      Nodemon is a utility that helps in the development process by automatically restarting the Node.js 
+      application whenever changes are detected in the source code.
+      It eliminates the need to manually stop and restart the server after each code modification. Nodemon is not specific to any particular framework and can be used with any Node.js application.
+
+    The connection between Express and nodemon is straightforward:
+
+During development, you can use nodemon to monitor your Express application's source code for changes.
+Whenever you make changes and save the files, nodemon will automatically restart the Express server,
+allowing you to immediately see the changes without manually restarting the server.
+
+---Express application
+
+          The code snippet you provided creates an Express server and starts it listening on port 8080. Here's a breakdown of the code:
+                  const server = express();
+          This line creates an instance of the Express application by calling the `express()` function. The `server` variable represents the Express application, which can be used to define routes, middleware, and handle HTTP requests.
+                  server.listen(8080);
+
+          This line starts the Express server and makes it listen for incoming requests on port 8080. The `listen()` method is provided by the `server` object, which is an instance of the Express application. The argument `8080` specifies the port number on which the server will listen for incoming requests.
+          Once the server is started, it will continue to listen for requests until it is explicitly stopped or the application process is terminated.
+
+  Here's an example of a complete Express server setup:
+
+            const express = require('express');
+            const server = express();
+
+// Define routes and middleware here
+            const port = 8080;
+            server.listen(port, () => {
+              console.log(`Server listening on port ${port}`);
+            });
+
+
+  In this example, you can add routes and middleware before calling `server.listen()`.
+  This allows you to define the behavior and handle various HTTP requests based on the routes you specify.
+  With the server running and listening on port 8080, 
+  you can access your Express application by visiting `http://localhost:8080` 
+  in your web browser or making requests to that address programmatically.
+
+STEPS:
+  *npm init
+  *npm install express
+  * //once the server is started it doesn't stop automatically,
+      it keeps running
+
+    *devDependencies: download and to run write it down under "script" under "package.json"
+
+  *npm outdates: to check the files if any outdated with the project
+
+  *To uninstall any module(eg:express)
+
+         ==>npm uninstall express
+
+  *  
+
+----------experemneting node.js
+
+  *to download all the defualt packages
+    =>npm init -y
+      (defualt packgae with the default name and the rest will be installed)
+
+  *const http = require('http');
+    =>The code snippet you provided is importing the http module in a Node.js environment. The http module is a core module in Node.js that 
+      allows you to create HTTP servers or make HTTP requests.
+    =>http.createServer((req,res)=>{}): call back function 
+  
+Request:
+  server(server is like a function which run once the request is made) = (create+listen+run)
+      =>how to see it is running
+        run=> localhost:portNumber(only request is made, still response is not created)
+
+Response:
+  learn response methods.
+  main method of response is "end"
+
+*Headers can be set for request and response using setHeaders() method
+    req.setHeader()
+    res.setHeader()
+
+*paasing JSON data to the server
+
+  ^JSON (JavaScript Object Notation) is a lightweight data 
+     interchange format that is commonly used for transmitting
+     data between a server and a web application, or between different parts of an application. It is easy for humans to read and write and easy for machines to parse and generate.
+  ^JSON data is represented as a collection of key-value pairs. The keys are strings enclosed in double quotation marks,
+     and the values can be various data types, including strings, numbers, booleans, arrays, or nested JSON objects.
+eg: JSON data
+  {
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe@example.com",
+  "hobbies": ["reading", "traveling", "cooking"],
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "country": "USA"
+  }
+}
+
+*node is not smart enough to understand by intself to idenftify JSON data, 
+it has to be changes into the string 
+
+`=> using JSON.stringify
+but still node has to be specified that data send is JSON
+
+=> using contnt-type header to tag it as JSON data
+tagging or sending as a JSON data-type
+
+    *res.setHeader('Content-Type','application/json');
+
+
+//Now lets seee Request:
+
+  let us create a dummy JSON file from internet
+  and one HTML file.
+
+*to read/send the file (JSON,HMTL) using ".readFile" or ".readFileSync"
+
+  ---we re using .readFileSync outside the server, as it will run once only when the server starts
+
+------templeating / Dynamic hosting / server-side rendering:
+
+*using a available Template at code dost node master class

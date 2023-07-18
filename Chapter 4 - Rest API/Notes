@@ -1,0 +1,410 @@
+---------------NODE.js
+
+*No window ,No docs, No Location
+*Have Objectsproperties/techniques:
+Module => is a global proerty,consists of "exports" is a global property
+Global
+Process
+Require
+
+=>to export one file to another,we have two ways
+
+1st: using modules
+
+convert what you want to export into a module(Exporting)
+
+    => module(keyword/property).export(module/export).anyMadeUpName = whatYouareExporting;
+
+(Importing):
+
+    *requires(property) (what we want) save in a madeupname varibale to acces it later
+
+      => const anyMadeUpName = requires("./filePath");
+         Print the object which is returned as an object
+
+----package.json
+
+to manage the node. constains the setting for node
+
+\*4-5 events from node.js docs
+
+//readingfile module
+
+never read the file as syync as it may block the NodeJS runtime
+use async always to avoid blocking node runtime
+=>fs.readFileSync('module1.txt',"utf-8"); //utf-8 to inform the compiler the output is needed in this format
+
+----------CallBack(): # In Node.js, a callback function is a commonly used pattern
+for handling asynchronous operations.
+
+      #  the callback function is non-blocking, meaning that the code execution continues
+         without waiting for   the operation to complete. In the example above, the line console.log('Reading file...') is executed immediately after calling readFile, before the file read operation finishes.
+
+      #  Callbacks can be used with various Node.js functions, such as file system operations, network
+         requests, and database queries. They provide a way to handle the asynchronous nature of these operations and ensure that the code executes the appropriate logic when the operation is completed.
+
+                  e.g=>c.log(((t2-t1/1024)/1024)/1024)
+
+    # In this code, the value t2 - t1 is first calculated,
+    then divided by 1024 to convert it to kilobytes, divided by 1024 again to convert it to megabytes, and finally divided by 1024 once more to convert it to gigabytes. The resulting value is then logged to the console using console.log.
+
+------npm:(node Pacakge MAnager) # npm (Node Package Manager) is a package manager for the JavaScript runtime  
+ environment Node.js. It comes bundled with Node.js and provides a command-line interface and a central repository of packages/modules that can be installed into Node.js projects.
+
+    # With npm, you can easily manage dependencies and install packages required
+      by your   Node.js applications. It simplifies the process of sharing and reusing code by allowing you to specify the dependencies in a package.json file and installing them with a simple command.
+
+Here are some common commands and their usage with npm:
+
+*npm init: Initializes a new Node.js project and creates a package.json file.
+*npm install: Installs dependencies listed in the package.json file.
+*npm install package-name: Installs a specific package and adds it to the package.json  
+ file as a dependency.
+*npm install --save-dev package-name: Installs a package as a development dependency.
+*npm uninstall package-name: Uninstalls a package and removes it from the package.json  
+ file.
+*npm update: Updates packages to their latest versions, based on the version constraints specified in the package.json file.
+*npm start: Runs the script defined in the scripts.start field of the package.json file.
+*npm test: Runs the script defined in the scripts.test field of the package.json file.
+\*npm run script-name: Runs a custom script defined in the scripts field of the package.
+json file.
+
+These are just a few examples of the many commands and options available with npm. It's a powerful tool for managing packages and dependencies in Node.js projects.
+
+"^4.18.2" => This is the version constraint for the Express package. The
+caret symbol (^) indicates that your project can use any compatible version of Express that is greater than or equal to 4.18.2 but less than the next major version.(most recommended)
+" 4^.18.2"=> doesn't allow app to run with any update
+" ~4.18.2"=> learn
+
+-------express application:
+
+const server = express();
+=>we call express() to create a new instance of the Express application and assign it
+to the server variable.
+=>After creating the server, you can define routes, middleware, and other
+configurations for your application. Finally, you start the server by calling server.listen() and specifying the port number (in this case, 3000) and a callback function to execute when the server starts.
+
+server.listen(8080);
+=> after creating the server instance of the Express application, you define your routes, middleware, and other configurations specific to your application.
+
+=>Then, by calling server.listen(8080), you instruct the server to start listening for
+incoming requests on port 8080. The optional callback function in the listen method is executed when the server starts successfully, and it can be used to perform any additional tasks or logging.
+
+=>When you run this code and the server starts successfully, you should see the message
+"Server is running on port 8080" logged to the console. The server will continue to listen for incoming requests until it is explicitly stopped or terminated.
+
+---- .gitignore
+
+write down the names of the files in the .gitignore folder
+which we don't want to upload on git repo
+
+if we see any file which doesn't have node_module when
+code is downloaded,
+
+after downloading the code
+
+-------------server
+
+Q) what is web server
+
+          A web server is a computer program or software that delivers content, such as web pages, to clients over the internet or an intranet. It handles the communication between clients, typically web browsers, and the server itself. When a client requests a web page by entering a URL (Uniform Resource Locator) into the browser, the web server processes the request and sends back the requested content to the client.
+
+
+          Web servers follow the client-server model, where the server software runs on a dedicated computer or server hardware and listens for incoming requests on a specific port, usually port 80 for HTTP (Hypertext Transfer Protocol) or port 443 for HTTPS (HTTP Secure). The server processes the requests and returns the requested web pages or resources to the client, which then displays them in the browser.
+
+          Web servers can serve static content, such as HTML files, images, CSS stylesheets, and JavaScript files, as well as dynamic content generated on the fly by server-side scripting languages like PHP, Python, or Ruby. They can also handle other tasks, such as managing user authentication, database access, and handling other protocols like FTP (File Transfer Protocol).
+
+          Commonly used web server software includes Apache HTTP Server, Nginx, Microsoft Internet Information Services (IIS), and LiteSpeed. These servers can be configured to host multiple websites or web applications simultaneously and handle a high volume of concurrent connections, ensuring efficient and reliable delivery of web content to clients.
+
+Q) which web server does google uses
+
+          Google primarily uses its custom-built web server software called Google Frontend (GFE). GFE is a distributed web server infrastructure developed by Google to handle the massive scale and high traffic demands of its services. It is not publicly available or widely used outside of Google.
+
+          However, Google also utilizes other web server software for specific purposes. For example, Google employs Apache Hadoop and Apache Spark for distributed data processing and analytics. Additionally, Google Cloud Platform provides options for hosting websites and applications using web server software such as Nginx, Apache HTTP Server, and Google Cloud Load Balancing.
+
+          It's important to note that the exact infrastructure and technologies used by Google are not publicly disclosed in great detail, as they are part of Google's proprietary systems.
+
+Q) where are web server physically located
+
+          Web servers are physically located in data centers. Data centers are specialized facilities that house servers, networking equipment, storage devices, and other infrastructure required for hosting and managing digital services.
+
+          Data centers are designed to provide a controlled environment with features such as power backup, cooling systems, fire suppression, physical security measures, and redundant network connectivity. These facilities are equipped to handle the power, cooling, and network requirements of the servers, ensuring their reliable operation.
+
+          The physical location of web servers can vary depending on the organization and its specific needs. Larger companies may have their own private data centers located on their premises or in different geographical locations. These data centers can span multiple buildings or even different countries to ensure redundancy and disaster recovery.
+
+          Alternatively, organizations may choose to use third-party data centers or cloud service providers to host their web servers. These data centers are owned and operated by specialized companies that offer infrastructure services to businesses. Cloud service providers like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) have data centers distributed across multiple regions globally, allowing businesses to host their web servers closer to their target audience.
+
+          The physical location of web servers is not necessarily tied to the location of the website or service they host. It is common for web servers to be located in data centers that may be geographically distant from the users accessing the website or service. This is possible due to the global network infrastructure that enables data to be transmitted quickly and efficiently across long distances.
+
+Q)how big in size are the web servers
+
+          The size of web servers can vary significantly depending on various factors, including the organization's needs, the scale of the services being provided, and the specific hardware configurations. Web servers can range from small, low-power machines to large-scale server clusters.
+
+          It the lower end of the spectrum, a basic web server can be a small form factor computer or even a single-board computer like a Raspberry Pi. These compact servers can be used for hosting small websites or running simple web applications.
+
+          In contrast, large-scale web servers used by major organizations or cloud service providers are much more substantial in size. They can consist of racks or entire data center rooms filled with server hardware. These setups are designed for high performance, scalability, and redundancy.
+
+          In terms of storage capacity, web servers can have varying amounts of disk space depending on the needs of the hosted content. This can range from a few gigabytes for basic websites to multiple terabytes or even petabytes for large-scale applications, file hosting, or content distribution.
+
+          It's important to note that the physical size of a web server doesn't necessarily correlate with its processing power or storage capacity. Technological advancements have led to the development of more powerful and compact server hardware, allowing for increased performance and density in smaller physical footprints.
+
+          Overall, the size of web servers can vary significantly based on the specific requirements and infrastructure of the organization or service provider.
+
+Q) does cloud computing have web server
+
+          Yes, cloud computing includes web server capabilities. Cloud service providers offer web server infrastructure as part of their services, allowing businesses and individuals to host websites, web applications, and other online services in the cloud.
+
+          Cloud computing provides the flexibility and scalability to deploy and manage web servers without the need for physical hardware or on-premises infrastructure. Instead, users can leverage virtual servers or containers provided by the cloud service provider.
+
+          Cloud service providers, such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP), offer various services specifically designed for web hosting and application deployment. These services typically include options to deploy and manage web servers, load balancers, auto-scaling capabilities, database integration, and content delivery networks (CDNs).
+
+          Users can select the desired configuration for their web servers, such as the operating system, server software (e.g., Apache, Nginx), and storage capacity. They can also scale the resources up or down based on their needs, ensuring the web servers can handle varying levels of traffic.
+
+          Cloud computing's web server capabilities offer advantages such as high availability, scalability, fault tolerance, and simplified management. It enables businesses to focus on developing and delivering their applications without the burden of managing the underlying infrastructure.
+
+          Overall, cloud computing platforms provide a robust and flexible environment for hosting web servers and powering web-based services.
+
+Q) how is datebase different from web server
+
+          A database and a web server are two distinct components of a web application's infrastructure. Here's a brief explanation of the differences between the two:
+
+          Web Server:
+              - A web server is responsible for handling the communication between clients (web browsers) and the server itself.
+              - It receives requests from clients, such as accessing web pages or submitting form data, and returns the requested content or performs actions accordingly.
+              - Web servers are primarily focused on serving web pages, handling HTTP requests, and managing the delivery of static and dynamic content.
+              - Common web server software includes Apache HTTP Server, Nginx, Microsoft IIS, and LiteSpeed.
+
+          Database:
+              - A database is a structured collection of data organized in a way that enables efficient storage, retrieval, and manipulation of information.
+              - Databases store data that is used and manipulated by the web application.
+              - They provide a structured environment for storing and managing data in tables, which can have relationships and constraints.
+              - Databases enable efficient querying, updating, and retrieval of data using languages like SQL (Structured Query Language).
+              - Popular databases include MySQL, PostgreSQL, Oracle, Microsoft SQL Server, and MongoDB.
+
+              In the context of a web application, the web server and the database often work together:
+              - The web server handles the processing of client requests and may communicate with the database to retrieve or modify data based on those requests.
+              - For example, when a user submits a form on a website, the web server receives the data, validates it, and may interact with the database to store the information or retrieve additional data to be displayed on a subsequent web page.
+              - The web server acts as an intermediary between the client and the database, facilitating the flow of information between the two components.
+
+          In summary, while the web server focuses on serving web pages and handling client requests, the database manages the storage and retrieval of structured data used by the web application. They work together to provide the necessary functionality for web applications to operate effectively.
+
+Q)when a request is send by client to whom the web server contacts to get the response
+
+        When a client sends a request to a web server, the web server typically contacts the appropriate components within its own infrastructure to generate the response. This may involve interacting with various layers or components, depending on the architecture of the web application. Here's a general overview of the process:
+
+              1. Client sends a request: The client (web browser) sends a request to the web server. This request typically includes information such as the URL, HTTP method (e.g., GET, POST), headers, and any additional data like form submissions or query parameters.
+
+              2. Web server receives the request: The web server receives the request and parses the necessary information from the request headers and body.
+
+              3. Static content response: If the requested resource is a static file (e.g., HTML, CSS, JavaScript, images), the web server can directly serve it as a response to the client without needing to contact any other components. The web server reads the file from the file system and sends it back to the client.
+
+              4. Dynamic content response: If the requested resource requires dynamic content generation (e.g., retrieving data from a database, processing user input), the web server may need to interact with other components, such as application servers or scripting engines. The web server forwards the request to the appropriate component responsible for generating the dynamic content.
+
+              5. Application server or scripting engine: In the case of web applications, the web server may pass the request to an application server or a scripting engine (e.g., PHP, Python, Java servlet container) for further processing. This component executes the necessary code or scripts to generate the dynamic content based on the request data.
+
+              6. Database or other services: If the dynamic content requires data retrieval or modification, the application server or scripting engine may contact a database or other services to retrieve or update the required data.
+
+              7. Response generation: The application server or scripting engine generates the response based on the dynamic content and any data retrieved from the database or other services. This response is sent back to the web server.
+
+              8. Web server responds to the client: The web server receives the response from the application server or scripting engine and sends it back to the client as an HTTP response. This includes the response status code, headers, and the body containing the requested content or any error messages.
+
+              9. Client receives the response: The client (web browser) receives the HTTP response from the web server and processes it. It can display the requested content, execute embedded scripts, or handle any redirects or errors included in the response.
+
+              In summary, the web server serves as the entry point for client requests and coordinates with other components within the web application infrastructure, such as application servers, scripting engines, databases, or other services, to generate the appropriate response.
+
+Q)what is the difference between url and http
+
+      URL and HTTP are related concepts but serve different purposes in the context of web communication. Here's a brief explanation of the differences between them:
+
+        URL (Uniform Resource Locator):
+              - A URL is a string of characters that provides the address or location of a resource on the internet.
+              - It is a standardized format used to identify and access various resources, such as web pages, images, files, or APIs.
+              - A URL consists of multiple components, including the protocol, domain name or IP address, path, query parameters, and fragment identifier.
+              - Example: https://www.example.com/page?param=value#section
+
+              HTTP (Hypertext Transfer Protocol):
+              - HTTP is a protocol used for communication between web servers and clients (web browsers).
+              - It defines a set of rules and conventions for requesting and transferring hypertext (web) resources over the internet.
+              - HTTP specifies how messages are formatted, transmitted, and interpreted by web servers and clients.
+              - HTTP operates on top of a reliable transport protocol such as TCP (Transmission Control Protocol).
+              - HTTP requests are initiated by clients (web browsers) to retrieve resources, while HTTP responses are returned by web servers containing requested content or error messages.
+              - Example HTTP methods include GET, POST, PUT, DELETE, which define the actions to be performed on the requested resource.
+
+          In summary, a URL is a specific format used to address and locate resources on the internet, while HTTP is a protocol that enables communication between web servers and clients. The URL specifies the location of a resource, and HTTP defines how to request and transfer that resource using methods like GET and POST. URLs are used within the context of HTTP communication to specify the target resource for retrieval or manipulation.
+
+Q)http and https
+
+      HTTP (Hypertext Transfer Protocol) and HTTPS (HTTP Secure) are both protocols used for communication between web servers and clients (web browsers). However, they differ in terms of security and data encryption:
+
+      HTTP (Hypertext Transfer Protocol):
+          - HTTP is a protocol used for transmitting hypertext (web) resources over the internet.
+          - It operates on top of a reliable transport protocol such as TCP (Transmission Control Protocol).
+          - HTTP is not secure by default and does not provide encryption for the data transmitted between the web server and the client.
+          - It uses plain text to send requests and responses, which means that the information exchanged, including passwords, form data, and other sensitive details, can be intercepted and read by attackers.
+
+          HTTPS (HTTP Secure):
+          - HTTPS is a secure version of HTTP that adds an extra layer of security through encryption.
+          - It uses SSL (Secure Sockets Layer) or its successor, TLS (Transport Layer Security), protocols to encrypt the data transmitted between the web server and the client.
+          - HTTPS ensures that the information sent between the server and the client remains private and secure, protecting against eavesdropping and data tampering.
+          - It uses digital certificates issued by trusted Certificate Authorities (CAs) to verify the authenticity of the web server and establish an encrypted connection.
+          - URLs using HTTPS start with "https://" instead of "http://".
+
+        When a client accesses a website via HTTPS, the communication between the client and the web server is encrypted, providing confidentiality and integrity of the transmitted data. This is particularly important when sensitive information like passwords, financial data, or personal information is being transmitted.
+
+        In recent years, the use of HTTPS has become more prevalent, and many websites have adopted it as the default protocol to ensure secure communication and protect user privacy. Modern web browsers often indicate the security status of a website by displaying a padlock icon or a "Secure" label in the address bar.
+
+        In summary, HTTPS is an extension of HTTP that adds encryption and security features to protect the data transmitted between the client and the web server, while HTTP operates without encryption and is not secure by default.
+
+Q)does url contains https keyword
+
+    No, a URL (Uniform Resource Locator) does not necessarily contain the keyword "https". The "https" portion in a URL typically appears at the beginning of the URL as the protocol specifier, indicating that the website should be accessed using the secure HTTP protocol (HTTPS).
+
+      Here's an example of a URL that starts with "https":
+
+```
+              https://www.example.com/page
+```
+
+      In this example, "https://" indicates that the website should be accessed using HTTPS.
+
+    However, it's important to note that not all URLs begin with "https". Some URLs may begin with "http://" or may not specify a protocol at all (in which case, the default protocol assumed is usually "http://"). The specific protocol used depends on the configuration of the website and the resources being accessed.
+
+    So, while "https" is commonly associated with URLs that use the HTTPS protocol, it is not a mandatory keyword that must appear in all URLs.
+
+Q)what is headers
+
+    Headers, in the context of HTTP (Hypertext Transfer Protocol), are additional information attached to an HTTP request or response. They provide metadata about the request or response, allowing the client and server to exchange specific instructions, data formats, authentication credentials, caching directives, and more.
+
+    HTTP headers consist of a key-value pair, where the key represents the header field name, and the value provides the associated information. Headers can be included in both the request sent by the client and the response returned by the server.
+
+  Here are a few common types of headers:
+
+        1. Request Headers:
+
+          - Host: Specifies the domain name of the server being accessed.
+          - User-Agent: Identifies the client software or web browser.
+          - Content-Type: Indicates the type of data sent in the request body, such as JSON or form data.
+          - Authorization: Provides authentication credentials for the request.
+          - Accept-Language: Specifies the preferred language for the response.
+
+        2. Response Headers:
+          - Content-Type: Indicates the type of data returned in the response body.
+          - Set-Cookie: Sets a cookie on the client for future requests.
+          - Location: Specifies a redirect location for the client.
+          - Cache-Control: Defines caching instructions for the client or intermediaries.
+          - Access-Control-Allow-Origin: Specifies the allowed origins for cross-origin resource sharing (CORS).
+
+        Headers serve various purposes, including:
+
+        - Controlling caching behavior.
+        - Enabling content negotiation between the client and server.
+        - Supporting authentication and authorization mechanisms.
+        - Defining character encoding and language preferences.
+        - Communicating server-side information or instructions to the client.
+
+    Web developers and server administrators can leverage headers to control and customize the behavior of HTTP requests and responses. The specific headers used and their meaning can vary based on the requirements of the web application or API being developed.
+
+Q)set header
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url, true);
+
+    // Set headers in a request
+    xhr.setRequestHeader('User-Agent', 'Mozilla/5.0');
+    xhr.setRequestHeader('Authorization', 'Bearer my_token');
+
+    xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+    // Handle the response
+    }
+    };
+
+    xhr.send();
+
+    // Set headers in a response
+    xhr.getResponseHeader('Content-Type'); // Read a specific header
+    xhr.getAllResponseHeaders(); // Read all headers
+
+Q)difference between .readFile & .readFileSyn
+
+    The differences between `.readFile` and `.readFileSync` depend on the programming language and libraries being used. However, I'll provide an explanation based on common usage in JavaScript.
+
+    In JavaScript, both `.readFile` and `.readFileSync` are used to read the contents of a file. The difference lies in their synchronous and asynchronous nature:
+
+        1. `fs.readFile` (asynchronous):
+          - `fs.readFile` is a non-blocking, asynchronous function used to read the contents of a file.
+          - It takes in a filename and a callback function as parameters.
+          - When called, it starts reading the file and immediately returns without blocking the execution of   
+            other code.
+          - Once the file has been read, the callback function is invoked with an error object (if any) and the 
+            file's contents.
+          - This asynchronous nature allows other operations to proceed while the file is being read, making it 
+            suitable for scenarios where non-blocking I/O is desired.
+
+        Example usage:
+        ```javascript
+
+        const fs = require('fs');
+        fs.readFile('file.txt', 'utf8', (err, data) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          console.log(data);
+        });
+
+
+        ```
+
+        2.`fs.readFileSync` (synchronous):
+          - `fs.readFileSync` is a blocking, synchronous function used to read the contents of a file.
+          - It takes in a filename and optional encoding as parameters and returns the file's contents.
+          - When called, it blocks the execution of further code until the file has been completely read and the contents are returned.
+          - It is generally recommended to use asynchronous methods (`fs.readFile`) instead of synchronous methods, as synchronous operations can potentially cause the entire program to hang or become unresponsive while waiting for the file to be read.
+
+        Example usage:
+        ```javascript
+
+            const fs = require('fs');
+            try {
+              const data = fs.readFileSync('file.txt', 'utf8');
+              console.log(data);
+            } catch (err) {
+              console.error(err);
+        }
+
+        ```
+
+    In summary, `.readFile` is an asynchronous function that reads the file contents and requires a callback function to handle the results. On the other hand, `.readFileSync` is a synchronous function that blocks further code execution until the file has been read and returns the contents directly.
+
+    Q)what is .readFile in js
+
+        The .readFile function allows you to read the contents of a file without blocking the execution of other code. It is particularly useful when working with I/O operations that may take some time to complete, such as reading large files or making requests to external resources.
+
+        Here is the basic syntax for using .readFile in Node.js:
+
+           const fs = require('fs');
+           fs.readFile(path, options, callback);
+
+    The parameters of the .readFile function are as follows:
+
+      path: A string representing the file path or file descriptor of the file to be read.
+      options (optional): An object specifying additional options for reading the file, such as the file 
+                          encoding. Commonly used encoding options are 'utf8' for text-based files and 'binary' for binary files. If no encoding is specified, the raw buffer data will be returned.
+      callback: A callback function that is invoked once the file has been read or if an error occurs. The    
+                callback function typically takes two parameters: err for any error encountered during the file read operation, and data for the contents of the file.
+
+      Here is an example usage of .readFile:
+
+          const fs = require('fs');
+          fs.readFile('file.txt', 'utf8', (err, data) => {
+          if (err) {
+             console.error(err);
+             return;
+         }
+           console.log(data);
+          });
+
+     
+      Using .readFile allows for non-blocking I/O operations in Node.js, enabling other parts of your program to execute concurrently while the file is being read.
